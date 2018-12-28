@@ -1,0 +1,52 @@
+{
+  "name": "eslint-plugin-sharp-monkey",
+  "version": "0.0.1",
+  "description": "common eslint plugin",
+  "keywords": [
+    "eslint",
+    "monkey",
+    "plugin"
+  ],
+  "homepage": "https://github.com/borenXue/eslint-plugin-sharp-monkey#readme",
+  "bugs": {
+    "url": "https://github.com/borenXue/eslint-plugin-sharp-monkey/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/borenXue/eslint-plugin-sharp-monkey.git"
+  },
+  "license": "ISC",
+  "author": "boren.xue",
+  "main": "lib/index.js",
+  "scripts": {
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "test": "mocha tests --recursive"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "sort-package-json && lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.2.1",
+    "@commitlint/config-conventional": "^7.1.2",
+    "conventional-changelog-cli": "^2.0.11",
+    "cz-conventional-changelog": "^2.1.0",
+    "eclint": "^2.8.1",
+    "husky": "^1.2.1",
+    "lint-staged": "^8.1.0",
+    "sort-package-json": "^1.17.1"
+  },
+  "lint-staged": {
+    "**/*": [
+      "eclint fix --block_comment_start '/**' --block_comment_end '*/'",
+      "git add"
+    ]
+  }
+}
