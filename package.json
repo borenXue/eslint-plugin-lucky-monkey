@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+ssh://git@github.com/borenXue/eslint-plugin-sharp-monkey.git"
   },
-  "license": "ISC",
+  "license": "MIT",
   "author": "boren.xue",
   "main": "lib/index.js",
   "scripts": {
