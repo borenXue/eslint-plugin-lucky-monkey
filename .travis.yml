@@ -9,9 +9,10 @@ branches:
     - master
     - develop
 
-cache:
-  directories:
-    - $HOME/.npm
+cache: npm
+
+install: npm install
+script: npm run test
 
 jobs:
   include:
