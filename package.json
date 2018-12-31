@@ -30,7 +30,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "sort-package-json && git add package.json && lint-staged",
+      "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
@@ -67,6 +67,10 @@
     "sort-package-json": "^1.17.1"
   },
   "lint-staged": {
+    "package.json": [
+      "sort-package-json",
+      "git add"
+    ],
     "src/**/*.{js,vue}": [
       "eslint --fix --ext .js,.vue src",
       "git add",
