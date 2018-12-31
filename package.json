@@ -21,7 +21,7 @@
   "scripts": {
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "debug": "babel src --out-dir lib && node tests/_index.js",
-    "docs": "cp README.md docs && gh-pages -d docs --silent --repo https://${GITHUB_TOKEN}@github.com/borenXue/eslint-plugin-lucky-monkey.git",
+    "docs": "cp README.md docs && ./node_modules/gh-pages/bin/gh-pages.js -d docs --silent --repo https://${GITHUB_TOKEN}@github.com/borenXue/eslint-plugin-lucky-monkey.git",
     "lint": "npm-run-all --parallel lint:*",
     "lint:editconfig": "eclint check --block_comment_start '/**' --block_comment_end '*/'",
     "lint:eslint": "eslint --ext .js src",
