@@ -21,6 +21,7 @@
   "scripts": {
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "debug": "babel src --out-dir lib && node tests/_index.js",
+    "docs": "cp README.md docs && gh-pages -d docs --silent --repo https://${GITHUB_TOKEN}@github.com/borenXue/eslint-plugin-lucky-monkey.git",
     "lint": "npm-run-all --parallel lint:*",
     "lint:editconfig": "eclint check --block_comment_start '/**' --block_comment_end '*/'",
     "lint:eslint": "eslint --ext .js src",
@@ -46,6 +47,7 @@
   "devDependencies": {
     "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^7.1.2",
+    "@semantic-release/exec": "^3.3.2",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.1",
     "babel-plugin-transform-runtime": "^6.23.0",
@@ -55,6 +57,7 @@
     "cz-conventional-changelog": "^2.1.0",
     "eclint": "^2.8.1",
     "eslint": "^5.11.1",
+    "gh-pages": "^2.0.1",
     "husky": "^1.2.1",
     "lint-staged": "^8.1.0",
     "mocha": "^5.2.0",
@@ -73,6 +76,21 @@
       "eclint fix --block_comment_start '/**' --block_comment_end '*/'",
       "git add",
       "eclint check --block_comment_start '/**' --block_comment_end '*/'"
+    ]
+  },
+  "release": {
+    "branch": "master",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      [
+        "@semantic-release/exec",
+        {
+          "success": "npm run docs"
+        }
+      ]
     ]
   }
 }
