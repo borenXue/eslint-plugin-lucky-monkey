@@ -1,5 +1,5 @@
 {
-  "name": "eslint-plugin-sharp-monkey",
+  "name": "eslint-plugin-lucky-monkey",
   "version": "0.0.0-development",
   "description": "common eslint plugin",
   "keywords": [
@@ -7,13 +7,13 @@
     "monkey",
     "plugin"
   ],
-  "homepage": "https://github.com/borenXue/eslint-plugin-sharp-monkey#readme",
+  "homepage": "https://github.com/borenXue/eslint-plugin-lucky-monkey#readme",
   "bugs": {
-    "url": "https://github.com/borenXue/eslint-plugin-sharp-monkey/issues"
+    "url": "https://github.com/borenXue/eslint-plugin-lucky-monkey/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/borenXue/eslint-plugin-sharp-monkey.git"
+    "url": "https://github.com/borenXue/eslint-plugin-lucky-monkey.git"
   },
   "license": "MIT",
   "author": "boren.xue",
