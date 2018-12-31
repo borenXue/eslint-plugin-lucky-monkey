@@ -24,3 +24,4 @@ jobs:
         skip_cleanup: true
         script:
           - npm run semantic-release
+          - npm run docs
