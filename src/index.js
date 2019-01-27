@@ -17,5 +17,6 @@ var requireIndex = require("requireindex");
 module.exports.rules = requireIndex(__dirname + "/rules");
 
 module.exports.configs = {
-  'recommended': require('./configs/recommended')
+  'recommended': require('./config/recommended'),
+  'vue-recommended': require('./config/vue-recommended')
 }

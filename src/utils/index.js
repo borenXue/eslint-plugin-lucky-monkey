@@ -54,10 +54,15 @@ function isMathedOne(val, arr) {
   return false
 }
 
+
 //------------------------------------------------------------------------------
 // dead-protocol
 //------------------------------------------------------------------------------
 
+export const deadProtocolMessages = {
+  deadHttp: 'Avoid using the string "http://"',
+  deadHttps: 'Avoid using the string "https://"',
+}
 
 export function deadProtocolValidAndFixLiteral (str) {
   var obj = {
@@ -77,4 +82,20 @@ export function deadProtocolValidAndFixLiteral (str) {
     obj.valid = true;
   }
   return obj;
+}
+
+
+//------------------------------------------------------------------------------
+// vue support
+//------------------------------------------------------------------------------
+
+module.exports.defineVueTemplateBodyVisitor = function (context, templateBodyVisitor, scriptVisitor) {
+  if (context.parserServices.defineTemplateBodyVisitor == null) {
+    context.report({
+      loc: { line: 1, column: 0 },
+      message: 'Use the latest vue-eslint-parser. See also https://github.com/vuejs/eslint-plugin-vue#what-is-the-use-the-latest-vue-eslint-parser-error'
+    })
+    return {}
+  }
+  return context.parserServices.defineTemplateBodyVisitor(templateBodyVisitor, scriptVisitor)
 }

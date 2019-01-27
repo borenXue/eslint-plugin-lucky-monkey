@@ -1,11 +1,6 @@
 
 var _curry = require('lodash/curry');
-var { deadProtocolValidAndFixLiteral } = require('../utils');
-
-var failMessages = {
-  deadHttp: 'Avoid using the string "http://"',
-  deadHttps: 'Avoid using the string "https://"',
-}
+var { deadProtocolValidAndFixLiteral, deadProtocolMessages } = require('../utils');
 
 function literalHandler(context, isTemplate, node) {
   var value = context.getSourceCode().getText(node);
@@ -16,8 +11,8 @@ function literalHandler(context, isTemplate, node) {
       messageId = validObj.messageId;
     if (!valid) {
       context.report({
-        node: node,
-        messageId: messageId,
+        node,
+        messageId,
         fix: function(fixer) {
           return fixer.replaceText(node, fixStr);
         }
@@ -39,7 +34,7 @@ export default {
       recommended: true,
       url: ''
     },
-    messages: failMessages,
+    messages: deadProtocolMessages,
     fixable: "code",
     schema: []
   },
