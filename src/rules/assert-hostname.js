@@ -1,6 +1,6 @@
 
 import _curry from 'lodash/curry'
-import { thirdPartyResValid } from '../utils/res-white-list'
+import { thirdPartyResValid } from '../utils'
 
 const literalHandlerCurried = _curry(literalHandler)
 

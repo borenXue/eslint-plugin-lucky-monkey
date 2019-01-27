@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-lucky-monkey",
-  "version": "0.0.1-alpha",
+  "version": "2.0.0",
   "description": "common eslint plugin",
   "keywords": [
     "eslint",

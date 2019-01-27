@@ -1,7 +1,21 @@
+/**
+ * @fileoverview lucky-monkey eslint plugin
+ * @author luck-monkey
+ */
+"use strict";
 
-export default {
-  test() {
-    const version = 'v1.0.0'
-    console.log(`test...${version}`) // eslint-disable-line
-  }
+//------------------------------------------------------------------------------
+// Requirements
+//------------------------------------------------------------------------------
+
+var requireIndex = require("requireindex");
+
+//------------------------------------------------------------------------------
+// Plugin Definition
+//------------------------------------------------------------------------------
+
+module.exports.rules = requireIndex(__dirname + "/rules");
+
+module.exports.configs = {
+  'recommended': require('./configs/recommended')
 }

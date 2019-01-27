@@ -1,6 +1,6 @@
 
-const rule = require('../../lib/rules/res-white-list').default;
 const RuleTester = require('eslint').RuleTester;
+const rule = require('../../lib/rules/assert-hostname').default;
 
 const ruleTester = new RuleTester({ parserOptions: { ecmaVersion: 2015 } });
 
@@ -56,7 +56,7 @@ for (const invalidUrl of invalidUrls) {
   })
 }
 
-ruleTester.run('test case', rule, {
+ruleTester.run('assert-hostname', rule, {
   valid: valid.concat([
     'var a = "http://a.b.com/d.gif"'
   ]),
