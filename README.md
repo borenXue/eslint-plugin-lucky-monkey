@@ -12,7 +12,7 @@ $ npm install -D eslint
 $ npm install -D eslint-plugin-lucky-monkey
 ```
 
-如果你的项目是 Vue 项目, 则需要安装 [`vue-eslint-parser`](https://www.npmjs.com/package/vue-eslint-parser)。或者安装 (`eslint-plugin-vue`](https://www.npmjs.com/package/eslint-plugin-vue) 也可以, 因为该插件也依赖于 [`vue-eslint-parser`](https://www.npmjs.com/package/vue-eslint-parser)
+如果你的项目是 Vue 项目, 则需要安装 [`vue-eslint-parser`](https://www.npmjs.com/package/vue-eslint-parser)。或者安装 [`eslint-plugin-vue`](https://www.npmjs.com/package/eslint-plugin-vue) 也可以, 因为该插件也依赖于 [`vue-eslint-parser`](https://www.npmjs.com/package/vue-eslint-parser)
 
 ## 快速上手
 
@@ -69,3 +69,5 @@ module.exports = {
   }
 }
 ```
+
+## [更新记录](https://github.com/borenXue/eslint-plugin-lucky-monkey/releases)
