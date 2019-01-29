@@ -24,9 +24,9 @@
     "docs": "cp README.md docs && ./node_modules/gh-pages/bin/gh-pages.js -d docs --silent --repo https://${GITHUB_TOKEN}@github.com/borenXue/eslint-plugin-lucky-monkey.git",
     "lint": "npm-run-all --parallel lint:*",
     "lint:editconfig": "eclint check --block_comment_start '/**' --block_comment_end '*/'",
-    "lint:eslint": "eslint --ext .js src",
+    "lint:eslint": "eslint --ext .js src --format html -o ./docs/eslint.html",
     "semantic-release": "semantic-release",
-    "test": "npm run lint && babel src --out-dir lib && mocha tests --recursive"
+    "test": "npm run lint && babel src --out-dir lib && mocha tests --recursive --compilers js:babel-core/register --reporter mochawesome --reporter-options reportDir=./docs/mocha,reportName=eslint-plugin-lucky-monkey,reportTitle=eslint-plugin-lucky-monkey,inlineAssets=true"
   },
   "husky": {
     "hooks": {
@@ -48,6 +48,7 @@
     "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^7.1.2",
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
@@ -60,6 +61,7 @@
     "husky": "^1.2.1",
     "lint-staged": "^8.1.0",
     "mocha": "^5.2.0",
+    "mochawesome": "^3.1.1",
     "npm-run-all": "^4.1.5",
     "requireindex": "^1.2.0",
     "semantic-release": "^15.13.2",
@@ -152,7 +154,13 @@
         }
       ],
       "@semantic-release/npm",
-      "@semantic-release/github"
+      "@semantic-release/github",
+      [
+        "@semantic-release/exec",
+        {
+          "publishCmd": "npm run docs"
+        }
+      ]
     ]
   }
 }
