@@ -70,4 +70,4 @@ module.exports = {
 }
 ```
 
-## [更新记录](https://github.com/borenXue/eslint-plugin-lucky-monkey/releases)
+## [更新历史](https://github.com/borenXue/eslint-plugin-lucky-monkey/releases)
