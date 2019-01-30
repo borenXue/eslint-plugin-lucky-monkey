@@ -159,6 +159,7 @@
       [
         "@semantic-release/exec",
         {
+          "prepare": "pwd && ls && git status && git diff",
           "publishCmd": "npm run docs"
         }
       ]
