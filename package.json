@@ -16,7 +16,7 @@
     "url": "https://github.com/borenXue/eslint-plugin-lucky-monkey.git"
   },
   "license": "MIT",
-  "author": "boren.xue",
+  "author": "borenXue <boren.xue@outlook.com> (http://www.xueboren.com)",
   "main": "lib/index.js",
   "scripts": {
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
@@ -26,7 +26,7 @@
     "lint:editconfig": "eclint check --block_comment_start '/**' --block_comment_end '*/'",
     "lint:eslint": "eslint --ext .js src --format html -o ./docs/eslint.html",
     "semantic-release": "semantic-release",
-    "test": "npm run lint && babel src --out-dir lib && mocha tests --recursive --compilers js:babel-core/register --reporter mochawesome --reporter-options reportDir=./docs/mocha,reportName=eslint-plugin-lucky-monkey,reportTitle=eslint-plugin-lucky-monkey,inlineAssets=true"
+    "test": "npm run lint && babel src --out-dir lib && mocha tests --recursive --require babel-core/register --reporter mochawesome --reporter-options reportDir=./docs/mocha,reportName=eslint-plugin-lucky-monkey,reportTitle=eslint-plugin-lucky-monkey,inlineAssets=true"
   },
   "husky": {
     "hooks": {
@@ -159,7 +159,7 @@
       [
         "@semantic-release/exec",
         {
-          "prepare": "pwd && ls && git status && git diff",
+          "prepareCmd": "pwd && ls && git status && git diff package.json && git diff packge-lock.json",
           "publishCmd": "npm run docs"
         }
       ]
