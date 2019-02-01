@@ -48,6 +48,7 @@
     "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^7.1.2",
     "@semantic-release/exec": "^3.3.2",
+    "@semantic-release/git": "^7.0.8",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
@@ -157,9 +158,18 @@
       "@semantic-release/npm",
       "@semantic-release/github",
       [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json",
+            "package-lock.json"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ],
+      [
         "@semantic-release/exec",
         {
-          "prepareCmd": "pwd && ls && git status && git diff package.json && git diff package-lock.json",
           "publishCmd": "npm run docs"
         }
       ]
